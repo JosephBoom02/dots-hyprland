@@ -32,6 +32,7 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 edit = [
 	{ run = "${EDITOR:-vi} %s", desc = "vim",      for = "unix", block = true },
 	{ run = "/usr/bin/vscodium --ozone-platform=wayland --enable-unsafe-webgpu --enable-features=Vulkan %s", desc = "vscodium",      for = "unix", block = true },
+	{ run = "mpv %s", desc = "mpv",      for = "unix", block = true },
 	{ run = "code %s",          desc = "code",         for = "windows", orphan = true },
 	{ run = "code -w %s",       desc = "code (block)", for = "windows", block = true },
 ]
