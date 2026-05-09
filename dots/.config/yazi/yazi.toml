@@ -32,12 +32,14 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 edit = [
 	{ run = "${EDITOR:-vi} %s", desc = "vim",      for = "unix", block = true },
 	{ run = "/usr/bin/vscodium --ozone-platform=wayland --enable-unsafe-webgpu --enable-features=Vulkan %s", desc = "vscodium",      for = "unix", block = true },
-	{ run = "mpv %s", desc = "mpv",      for = "unix", block = true },
+	{ run = "mpv %s", desc = "mpv standard",      for = "unix", block = true },
+	{ run = "mpv --config-dir=/home/joseph/Git/mpv-config %s", desc = "mpv Git config",      for = "unix", block = true },
 	{ run = "code %s",          desc = "code",         for = "windows", orphan = true },
 	{ run = "code -w %s",       desc = "code (block)", for = "windows", block = true },
 ]
 play = [
 	{ run = "xdg-open %s1",    desc = "Play", for = "linux", orphan = true },
+	{ run = "mpv --config-dir=/home/joseph/Git/mpv-config %s",    desc = "Play (mpv Git config)", for = "linux", orphan = true },
 	{ run = "haruna %s1",	   desc = "Play (haruna)", for = "linux", orphan = true },
 	{ run = "open %s",         desc = "Play", for = "macos" },
 	{ run = 'start "" %s1',    desc = "Play", for = "windows", orphan = true },
