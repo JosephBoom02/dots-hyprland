@@ -32,13 +32,9 @@ if is_file_exists(HOME .. "/.config/hypr/custom/keybinds.lua") then
     require("custom.keybinds")
 end
 
--- nwg-displays support --
-if is_file_exists(HOME .. "/.config/hypr/workspaces.lua") then
-    require("workspaces")
-end
-if is_file_exists(HOME .. "/.config/hypr/monitors.lua") then
-    require("monitors")
-end
+-- nwg-displays support: re-add the files if it updates later
+-- require("workspaces")
+-- require("monitors")
 
 -- Shell overrides --
 require("hyprland.shellOverrides.main")

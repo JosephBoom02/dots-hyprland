@@ -2,12 +2,11 @@ groups=(illogical-impulse)
 pkgname=illogical-impulse-microtex-git
 _pkgname=MicroTeX
 pkgver=r494.0e3707f
-pkgrel=4
+pkgrel=3
 pkgdesc='MicroTeX for illogical-impulse dotfiles.'
 #pkgdesc="A dynamic, cross-platform, and embeddable LaTeX rendering library"
 arch=("x86_64")
-#url="https://github.com/NanoMichael/${_pkgname}"
-url="https://github.com/end-4/${_pkgname}"
+url="https://github.com/NanoMichael/${_pkgname}"
 license=('MIT')
 depends=(
   tinyxml2

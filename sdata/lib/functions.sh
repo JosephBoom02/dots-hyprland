@@ -3,7 +3,7 @@
 
 # shellcheck shell=bash
 
-function try { "$@" || true; }
+function try { "$@" || sleep 0; }
 function v(){
   echo -e "####################################################"
   echo -e "${STY_BLUE}[$0]: Next command:${STY_RST}"
