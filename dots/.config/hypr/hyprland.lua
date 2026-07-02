@@ -17,6 +17,8 @@ require("hyprland.general")
 require("hyprland.rules")
 require("hyprland.colors")
 require("hyprland.keybinds")
+-- require("hyprland.userpref")
+require("monitors")
 
 -- Custom configurations --
 if is_file_exists(HOME .. "/.config/hypr/custom/execs.lua") then
@@ -31,6 +33,9 @@ end
 if is_file_exists(HOME .. "/.config/hypr/custom/keybinds.lua") then
     require("custom.keybinds")
 end
+-- if is_file_exists(HOME .. "/.config/hypr/custom/userpref.lua") then
+--     require("custom.userpref")
+-- end
 
 -- nwg-displays support: re-add the files if it updates later
 -- require("workspaces")
@@ -38,3 +43,4 @@ end
 
 -- Shell overrides --
 require("hyprland.shellOverrides.main")
+

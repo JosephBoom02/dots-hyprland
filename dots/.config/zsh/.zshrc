@@ -64,4 +64,3 @@ source ~/.config/zsh/aliases.zsh
 
 source ~/.config/zshrc.d/dots-hyprland.zsh
 source /usr/share/oh-my-zsh/custom/plugins/fzf-tab/fzf-tab.plugin.zsh
-# bindkey -v

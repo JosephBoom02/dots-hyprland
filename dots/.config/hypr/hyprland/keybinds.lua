@@ -25,7 +25,7 @@ hl.bind("SUPER + V", hl.dsp.global("quickshell:overviewClipboardToggle"))
 hl.bind("SUPER + Period", hl.dsp.global("quickshell:overviewEmojiToggle"))
 hl.bind("SUPER + A", hl.dsp.global("quickshell:sidebarLeftToggle"), { description = "Shell: Toggle left sidebar" })
 hl.bind("SUPER + ALT + A", hl.dsp.global("quickshell:sidebarLeftToggleDetach"))
-hl.bind("SUPER + B", hl.dsp.global("quickshell:sidebarLeftToggle"))
+-- hl.bind("SUPER + B", hl.dsp.global("quickshell:sidebarLeftToggle"))
 hl.bind("SUPER + O", hl.dsp.global("quickshell:sidebarLeftToggle"))
 hl.bind("SUPER + N", hl.dsp.global("quickshell:sidebarRightToggle"), { description = "Shell: Toggle right sidebar" })
 hl.bind("SUPER + Slash", hl.dsp.global("quickshell:cheatsheetToggle"), { description = "Shell: Toggle cheatsheet" })
@@ -33,7 +33,7 @@ hl.bind("SUPER + K", hl.dsp.global("quickshell:oskToggle"), { description = "She
 hl.bind("SUPER + M", hl.dsp.global("quickshell:mediaControlsToggle"), { description = "Shell: Toggle media controls" })
 hl.bind("SUPER + G", hl.dsp.global("quickshell:overlayToggle"), { description = "Shell: Toggle widget overlay" })
 hl.bind("CTRL + ALT + Delete", hl.dsp.global("quickshell:sessionToggle"), { description = "Shell: Toggle session menu" })
-hl.bind("SUPER + J", hl.dsp.global("quickshell:barToggle"), { description = "Shell: Toggle bar" })
+-- hl.bind("SUPER + J", hl.dsp.global("quickshell:barToggle"), { description = "Shell: Toggle bar" })
 hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd(qsIsAlive .. " || pkill wlogout || wlogout -p layer-shell"))
 hl.bind("SHIFT + SUPER + ALT + Slash", hl.dsp.exec_cmd("qs -p $HOME/.config/quickshell/$qsConfig/welcome.qml"))
 
@@ -201,6 +201,35 @@ for i = 1, 10 do
         hl.dispatch(hl.dsp.window.move({ workspace = workspace_in_group(i), follow = false }))
     end, { description = "Window: Send to workspace " .. i })
 end
+
+--# #/# bind = SUPER+SHIFT, Hash,, -- Send to workspace -- (1, 2, 3,...)
+for i = 1, 10 do
+    hl.bind("SUPER + SHIFT + " .. (i % 10), function()
+        local w = hl.get_active_window()
+        if w ~= nil then
+            hl.dispatch(hl.dsp.window.move({
+                window    = w,                       -- the specific focused window
+                workspace = workspace_in_group(i),
+                follow    = true,                   -- don't follow it over
+            }))
+        end
+    end)
+end
+
+--# #/# bind = SUPER+SHIFT, Hash,, -- Send to workspace (silent) -- (1, 2, 3,...)
+for i = 1, 10 do
+    hl.bind("SUPER + ALT + SHIFT + " .. (i % 10), function()
+        local w = hl.get_active_window()
+        if w ~= nil then
+            hl.dispatch(hl.dsp.window.move({
+                window    = w,                       -- the specific focused window
+                workspace = workspace_in_group(i),
+                follow    = false,                   -- don't follow it over
+            }))
+        end
+    end)
+end
+
 --# We also use raw keycodes because some keyboard layouts register number keys as different chars. The codes can be verified with `wev`
 for i = 1, 10 do
     local numberkey = { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 }
@@ -279,12 +308,12 @@ for i = 1, 2 do
     hl.bind("CTRL + SUPER + ALT + " .. keys[i], hl.dsp.focus({ workspace = prefix[i] .. "1" }))
 end
 --#/# bind = SUPER, Page_↑/↓,, -- Focus left/right
-for i = 1, 4 do
-    local key = { "SUPER + Page_Down", "SUPER + Page_Up" }
-    local keycombos = { key[1], key[2], "CTRL + " .. key[1], "CTRL + " .. key[2] }
-    local prefix = { "r+", "r-", "r+", "r-" }
-    hl.bind(keycombos[i], hl.dsp.focus({ workspace = prefix[i] .. "1" }))
-end
+-- for i = 1, 4 do
+--     local key = { "SUPER + Page_Down", "SUPER + Page_Up" }
+--     local keycombos = { key[1], key[2], "CTRL + " .. key[1], "CTRL + " .. key[2] }
+--     local prefix = { "r+", "r-", "r+", "r-" }
+--     hl.bind(keycombos[i], hl.dsp.focus({ workspace = prefix[i] .. "1" }))
+-- end
 --#/# bind = SUPER, Scroll ↑/↓,, -- Focus left/right
 for i = 1, 4 do
     local key = { "SUPER + mouse_up", "SUPER + mouse_down" }

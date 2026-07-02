@@ -37,5 +37,5 @@ eval "$(zoxide init zsh)"
 
 export HSA_OVERRIDE_GFX_VERSION=11.0.0
 export ROCM_PATH=/opt/rocm
-# export LD_LIBRARY_PATH="/home/joseph/Downloads/zluda:$LD_LIBRARY_PATH"
+alias zluda='HSA_OVERRIDE_GFX_VERSION=11.0.0 ZLUDA_CUDA_LIB=/home/joseph/Downloads/zluda/libcuda.so LD_LIBRARY_PATH="/home/joseph/Downloads/zluda:$LD_LIBRARY_PATH" TORCH_DEVICE=cuda'
 
