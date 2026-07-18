@@ -30,7 +30,7 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
 edit = [
-	{ run = "${EDITOR:-vi} %s", desc = "vim",      for = "unix", block = true },
+	{ run = "nvim %s", desc = "nvim",      for = "unix", block = true },
 	{ run = "/usr/bin/vscodium --ozone-platform=wayland --enable-unsafe-webgpu --enable-features=Vulkan %s", desc = "vscodium",      for = "unix", block = true },
 	{ run = "mpv %s", desc = "mpv standard",      for = "unix", block = true },
 	{ run = "mpv --config-dir=/home/joseph/Git/mpv-config %s", desc = "mpv Git config",      for = "unix", block = true },
