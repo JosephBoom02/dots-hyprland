@@ -39,5 +39,18 @@ hl.bind("SUPER + ALT + G", function ()
 end)
 
 hl.bind("SUPER + BACKSPACE", hl.dsp.exec_cmd("systemctl suspend"))
+-- hl.bind("SUPER + SHIFT + BACKSPACE", hl.dsp.exec_cmd("hyprctl dispatch global quickshell:lock & pidof qs quickshell hyprlock || hyprlock & disown && systemctl"))
 
+hl.bind("SUPER + SHIFT + BACKSPACE", function()
+  hl.dispatch(hl.dsp.global("quickshell:lock"))
+  hl.exec_cmd("(pidof qs quickshell hyprlock || hyprlock) && systemctl suspend")
+end)
+
+-- bind = Super SHIFT, BACKSPACE, exec, hyprctl dispatch global quickshell:lock & pidof qs quickshell hyprlock || hyprlock & disown && systemctl
+
+hl.bind("SUPER + DELETE", function()
+                 hl.timer(function()
+                   hl.dispatch(hl.dsp.dpms({ action = "disable" }))
+                 end, {timeout = 500, type = "oneshot"})
+               end)
 
