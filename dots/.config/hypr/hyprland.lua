@@ -28,7 +28,7 @@ if is_file_exists(HOME .. "/.config/hypr/custom/general.lua") then
     require("custom.general")
 end
 if is_file_exists(HOME .. "/.config/hypr/custom/rules.lua") then
-    require("custom.rules")
+    -- require("custom.rules")
 end
 if is_file_exists(HOME .. "/.config/hypr/custom/keybinds.lua") then
     require("custom.keybinds")

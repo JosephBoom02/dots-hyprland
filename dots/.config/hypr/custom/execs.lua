@@ -5,4 +5,7 @@ hl.on("hyprland.start", function ()
 
     -- Qbittorrent
     hl.exec_cmd("qbittorrent")
+
+    -- Reset white point
+    hl.exec_cmd("hyprctl hyprsunset identity")
 end)
